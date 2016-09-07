@@ -19,7 +19,7 @@
     width: 620px;
     height: 400px;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
 }
 
 #object{
@@ -27,7 +27,7 @@
     width: 50px;
     height: 50px;
     box-sizing: border-box;
-    border: 2px solid blue;
+    border: 2px solid #7dddff;
 
     cursor: move;
 }
@@ -37,9 +37,62 @@
     height: 200px;
     margin-top: 10px;
     box-sizing: border-box;
-    border: 1px solid blue;
+    border: 1px solid #dddddd;
 
 }
+
+#title{
+    width: 618px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #35c5ff;
+}
+
+#slider{
+    width: 600px;
+    height: 8px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #cccccc;
+}
+
+#time{
+    width: 600px;
+    height: 5px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #cccccc;
+}
+
+#button{
+    margin-top: 20px;
+}
+
+#play{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background-color: #35c5ff;
+    display: inline-block;
+    border-radius:5px;
+    float: right;
+}
+
+#reset{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background-color: #cccccc;
+    display: inline-block;
+    border-radius: 5px;
+    float: right;
+}
+
+
+
 
 #table{
     width: 320px;
@@ -47,7 +100,7 @@
     margin-left: 10px;
     margin-right: 10px;
     box-sizing: border-box;
-    border: 1px solid blue;
+    border: 1px solid #dddddd;
 
     display: inline-block;
 }

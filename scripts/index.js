@@ -3,7 +3,7 @@
  */
 
 var element = document.getElementById("object");
-var canvas = document.getElementById("canvas");
+//var canvas = document.getElementById("canvas");
 var test= document.getElementById("canvas");
 //test.offsetLeft是横坐标
 //test.offsetTop是纵坐标
@@ -26,10 +26,12 @@ function move(event, offsetLeft, offsetTop) {
 
 }
 
-//想了半天想加一个监听事件
+//阻挡原始拖动的产生
 element.addEventListener("dragstart", function (e) {
     e.preventDefault();
 })
+
+//鼠标按下移动松开停止的功能
 element.addEventListener("mousedown", function (e) {
     function move2() {
         move(event, e.offsetX, e.offsetY);
