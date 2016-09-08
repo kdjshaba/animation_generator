@@ -39,9 +39,27 @@ element.addEventListener("mousedown", function (e) {
     }
     window.addEventListener("mousemove", move2);
     window.addEventListener("mouseup",function () {
-           window.removeEventListener("mousemove",move2);
+        window.removeEventListener("mousemove",move2);
     })
  });
+
+//每点击一下就增加一个圆圈
+var slider = document.getElementById("slider");
+
+
+function generate() {
+    var circle = document.createElement("div");
+    circle.className = "circle";
+    slider.appendChild(circle);
+
+};
+
+slider.addEventListener("click", function () {
+    generate ();
+});
+
+//"red"
+
 
 
 

@@ -9,6 +9,7 @@
 }
 
 #animate{
+    vertical-align: top;
     width: 620px;
     margin-left: 10px;
     margin-right: 10px;
@@ -56,6 +57,7 @@
     margin-left: auto;
     margin-right: auto;
     background-color: #cccccc;
+    position: relative;
 }
 
 #time{
@@ -103,6 +105,17 @@
     border: 1px solid #dddddd;
 
     display: inline-block;
+}
+
+.circle{
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    /*position: absolute;*/
+    top: -3px;
+    display:inline-block;
+    background-color: #35c5ff;
 }
 
 body{
