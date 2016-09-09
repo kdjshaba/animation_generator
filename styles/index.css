@@ -39,7 +39,7 @@
     margin-top: 10px;
     box-sizing: border-box;
     border: 1px solid #dddddd;
-
+    position: relative;
 }
 
 #title{
