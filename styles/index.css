@@ -50,14 +50,17 @@
     background-color: #35c5ff;
 }
 
-#slider{
+#middle{
     width: 600px;
     height: 8px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #cccccc;
     position: relative;
+}
+#slider{
+    height: 8px;
+    background-color: #cccccc;
 }
 
 #time{
@@ -111,11 +114,12 @@
     border-radius: 5px;
     width: 10px;
     height: 10px;
-    position: relative;
+    position: absolute;
     /*position: absolute;*/
-    top: -3px;
+    top: -1px;
     display:inline-block;
     background-color: #35c5ff;
+
 }
 
 body{
