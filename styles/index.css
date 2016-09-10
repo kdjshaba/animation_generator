@@ -1,13 +1,16 @@
+/*最上面的header*/
 #header{
     height: 80px;
 }
 
+/*中间的container*/
 #container{
     margin-left: auto;
     margin-right: auto;
     width: 980px;
 }
 
+/*中间左边的animate*/
 #animate{
     vertical-align: top;
     width: 620px;
@@ -16,23 +19,46 @@
     display: inline-block;
 }
 
+/*canvas以及其中的物体*/
 #canvas{
+    position: relative;
     width: 620px;
     height: 400px;
     box-sizing: border-box;
     border: 1px solid #dddddd;
 }
-
 #object{
     position: absolute;
     width: 50px;
     height: 50px;
     box-sizing: border-box;
     border: 2px solid #7dddff;
-
     cursor: move;
 }
+#rotate{
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: #cccccc;
+}
 
+/*time-slider中所有的element*/
+#title{
+    width: 618px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #35c5ff;
+}
+h2{
+    font-size: 20px;
+    box-sizing: border-box;
+    margin: 0 0 0 10px;
+    padding: 0;
+    line-height: 40px;
+    position: relative;
+}
 #time-slider{
     width: 620px;
     height: 200px;
@@ -40,14 +66,6 @@
     box-sizing: border-box;
     border: 1px solid #dddddd;
     position: relative;
-}
-
-#title{
-    width: 618px;
-    height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #35c5ff;
 }
 
 #middle{
@@ -62,7 +80,16 @@
     height: 8px;
     background-color: #cccccc;
 }
-
+.circle{
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    /*position: absolute;*/
+    top: -1px;
+    display:inline-block;
+    background-color: #35c5ff;
+}
 #time{
     width: 600px;
     height: 5px;
@@ -75,30 +102,23 @@
 #button{
     margin-top: 20px;
 }
-
-#play{
+#play, #reset{
     width: 100px;
     height: 40px;
     margin: 10px;
-    background-color: #35c5ff;
     display: inline-block;
+    border: none;
     border-radius:5px;
     float: right;
 }
-
+#play{
+    background-color: #35c5ff;
+}
 #reset{
-    width: 100px;
-    height: 40px;
-    margin: 10px;
     background-color: #cccccc;
-    display: inline-block;
-    border-radius: 5px;
-    float: right;
 }
 
-
-
-
+/*中间右边的表格显示数据*/
 #table{
     width: 320px;
     height: 610px;
@@ -110,19 +130,16 @@
     display: inline-block;
 }
 
-.circle{
-    border-radius: 5px;
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    /*position: absolute;*/
-    top: -1px;
-    display:inline-block;
-    background-color: #35c5ff;
-
+/*下面的footer*/
+#footer{
 }
+
 
 body{
     margin: 0;
     background-color: aliceblue;
+}
+
+#element{
+    position: absolute;
 }
