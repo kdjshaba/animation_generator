@@ -38,6 +38,8 @@ function move1(event, offsetLeft, offsetTop) {
     //element.style.transform = "translate("+x+"px,"+y+"px)";
     element.style.top = y + "px";
     element.style.left = x + "px";
+
+
 }
 //阻挡原始拖动的产生
 element.addEventListener("dragstart", function (e) {
@@ -73,11 +75,12 @@ xxx ++;
     var z = Math.sqrt(x*x+y*y);
     var rotat = Math.round((Math.asin(y/z)/Math.PI*180));
 // 第一象限
+    /*
     if (x2 >= x1 && y2 <= y1) {
         rotat = rotat;
-    }
+    }*/
 // 第二象限
-    else if (x2 <= x1 && y2 <= y1) {
+    if (x2 <= x1 && y2 <= y1) {
         rotat = 180 - rotat;
     }
 // 第三象限
@@ -108,9 +111,15 @@ var middle = document.getElementById("middle");
 var slider = document.getElementById("slider");
 var animate = document.getElementById("animate");
 var event = slider.event;
-//移动圆圈的功能
-function move3(event, offsetLeft, offsetTop, circle) {
-    //console.log(event.clientX, 1)
+
+/**
+ * 移动圆圈的功能
+ * @param event
+ * @param offsetLeft
+ * @param circle
+ */
+function move3(event, offsetLeft, circle) {
+    //console.log(event)
     var x = event.clientX-offsetLeft-animate.offsetLeft-middle.offsetLeft;
     if(x > 595) {
         x = 595;
@@ -120,6 +129,8 @@ function move3(event, offsetLeft, offsetTop, circle) {
     //var y = event.clientY;
     //console.log(x, y)
     circle.style.left = x+"px";
+    //arr.splice(i, 0, {time: time,offsetX:event.offsetX });
+    return x;
 }
 
 
@@ -135,38 +146,98 @@ function generate(event) {
         e.preventDefault();
     });
     circle.addEventListener("mousedown", function (event) {
+        var circle = event.target;
+        var toBeDel;
+        var index;
+        for(var i = 0 ; i< arr.length; i++) {
+            if(arr[i].view == circle) {
+                //index = i;
+                toBeDel = (arr.splice(i, 1))[0].view;
+                console.log(1)
+                break;
+            }
+        }
         var offsetLeft = event.offsetX;
-        var offsetTop = event.offsetY;
+        var left;
         function move4(event) {
-            move3(event, offsetLeft, offsetTop, circle);
+            left = move3(event, offsetLeft, circle);
         }
         window.addEventListener("mousemove", move4);
-        window.addEventListener("mouseup", function () {
+        var mouseup = function () {
             window.removeEventListener("mousemove", move4);
-        });
+            var time = left/600;
+            var index = -1;
+            for(var i = 0; i < arr.length; i++) {
+                if(arr[i].time > time) {
+                    arr.splice(i, 0, {
+                        time: time,
+                        offsetX: left,
+                        view: toBeDel
+                    });
+                    console.log(2)
+                    index = i;
+                    break;
+                }
+            }
+            if(index == -1) {
+                console.log(3)
+                arr.push({
+                    time: time,
+                    offsetX: left,
+                    view: toBeDel
+                });
+            }
+            window.removeEventListener("mouseup", mouseup);
+        };
+        window.addEventListener("mouseup", mouseup);
     });
+
+    var time = event.offsetX/600;
+    var index = -1;
+    for(var i = 0; i < arr.length; i++) {
+        if(arr[i].time > time) {
+            arr.splice(i, 0, {
+                time: time,
+                offsetX:event.offsetX,
+                view: circle
+            });
+            index = i;
+     //       circle.setAttribute("i", index + "");
+            break;
+
+        }
+    }
+    if(index == -1) {
+        arr.push({
+            time: time,
+            offsetX: event.offsetX,
+            view: circle
+        });
+        /*
+        index = 0;
+        if(arr.length == 1) {
+            index = 0;
+        } else {
+            index = arr.length - 1;
+        }
+        */
+       // circle.setAttribute("i", index + "");
+    }
+    /*
+    for(var i = 0; i < arr.length; i++) {
+        circle.setAttribute("i", i + "");
+    }*/
+
+
     circle.className = "circle";
+
     var x = event.offsetX - 5;
     circle.style.left = x + "px";
     middle.appendChild(circle);
 
-    var time = event.offsetX/600;
-    var inserted = false;
-    for(var i = 0; i < arr.length; i++) {
-        if(arr[i].time > time) {
-            arr.splice(i, 0, {time: time,offsetX:event.offsetX });
-            inserted = true;
-            break;
-        }
-    }
-    if(inserted == false) {
-        arr.push({
-            time: time,
-            offsetX: event.offsetX
-        })
-    }
 
-};
+
+}
 
 slider.addEventListener("click", function (event) {
     generate (event);
