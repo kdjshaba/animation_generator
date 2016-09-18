@@ -30,10 +30,9 @@ function move3(event, offsetLeft, circle) {
 }
 
 /**
- * 产生圆圈的功能
+ * 产生圆圈/绑定移动的功能
  * @param event
  */
-
 function generate(event) {
     var circle = document.createElement("div");
     //阻挡原始拖动的产生
@@ -49,20 +48,17 @@ function generate(event) {
             }
         }
 
+        //函数:移动circle
         var left;
-
         (function () {
             var offsetLeft = event.offsetX;
             function move4(event) {
                 left = move3(event, offsetLeft, circle);
             }
             window.addEventListener("mousemove", move4);
-
-
             var mouseup = function () {
                 window.removeEventListener("mousemove", move4);
                 var time = left / SLIDER_LEN;
-
                 //弹起来之后将删掉的json放回
                 judge(time , left , toBeDel);
                 window.removeEventListener("mouseup", mouseup);
@@ -74,8 +70,7 @@ function generate(event) {
     //往数组里面加circle对象
     var time = event.offsetX / SLIDER_LEN;
     judge(time , event.offsetX , circle);
-
-
+    
     var x = event.offsetX - CIRCLE_RADIUS;
     circle.style.left = x + "px";
     circle.className = "circle";

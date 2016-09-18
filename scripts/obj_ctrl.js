@@ -9,6 +9,10 @@ const CANVAS_HEIGHT = 400;
 const OBJ_WIDTH = 50;
 const OBJ_HEIGHT = 50;
 
+/**
+ * 移动object功能
+ * @type {Element}
+ */
 //移动物体的功能
 var element = document.getElementById("element");
 //var canvas = document.getElementById("canvas");
@@ -37,11 +41,8 @@ function move1(event, offsetLeft, offsetTop) {
     element.style.top = y + "px";
     element.style.left = x + "px";
 }
-
 //阻挡原始拖动的产生
-
 preventDrag(element);
-
 //鼠标按下移动松开停止的功能
 object.addEventListener("mousedown", function (e) {
     function move2() {
@@ -53,8 +54,10 @@ object.addEventListener("mousedown", function (e) {
     });
 });
 
-
-//旋转物体的功能
+/**
+ * 旋转object功能
+ * @type {Element}
+ */
 var rotate = document.getElementById("rotate");
 var xxx = 0;
 
@@ -88,8 +91,7 @@ function romate1(event, rotate) {
     }
     element.style.transform = "rotate(" + (-rotat) + "deg)";
 }
-
-//鼠标按下移动松开停止的功能
+//鼠标按下旋转松开停止的功能
 rotate.addEventListener("mousedown", function () {
     function rotate2(event) {
         romate1(event,rotate);
