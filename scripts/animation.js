@@ -24,18 +24,14 @@ var arr = [
  */
 
 var play = document.getElementById("play");
-play.addEventListener("click", function (e) {
+play.addEventListener("click", function () {
     var str = "@-webkit-keyframes animation{";
-
     for(var i = 0; i < arr.length; i++) {
         str += arr[i].time + "% {";
         str += arr[i].condition + "}"
     }
-
     str += "}";
-
-    str += ".animation{-webkit-animation:animation 5s}"
-
+    str += ".animation {-webkit-animation:animation 5s}"
 
     var style = document.createElement("style");
     style.innerHTML = str;
