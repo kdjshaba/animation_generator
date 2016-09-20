@@ -1,9 +1,14 @@
-/*最上面的header*/
+/*---------------------------
+最上面的header
+---------------------------*/
 #header{
     height: 80px;
 }
 
-/*中间的container*/
+
+/*---------------------------
+中间的container
+---------------------------*/
 #container{
     margin-left: auto;
     margin-right: auto;
@@ -26,6 +31,13 @@
     height: 400px;
     box-sizing: border-box;
     border: 1px solid #dddddd;
+}
+
+#element{
+    background: #ffd672;
+    -webkit-animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1; /* Safari 和 Chrome */
 }
 #object{
     position: absolute;
@@ -89,6 +101,7 @@ h2{
     top: -1px;
     display:inline-block;
     background-color: #35c5ff;
+
 }
 #time{
     width: 600px;
@@ -118,6 +131,7 @@ h2{
     background-color: #cccccc;
 }
 
+
 /*中间右边的表格显示数据*/
 #table{
     width: 320px;
@@ -130,7 +144,9 @@ h2{
     display: inline-block;
 }
 
-/*下面的footer*/
+/*---------------------------
+下面的footer
+---------------------------*/
 #footer{
 }
 

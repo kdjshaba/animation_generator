@@ -19,12 +19,15 @@ var preventDrag = function (object) {
  * @param offsetX
  * @param view
  */
-var judge = function (time , offsetX , view) {
+var judge = function (time, offsetLeft, offsetTop , offsetX, view) {
     var index = -1;
     for(var i = 0; i < arr.length; i++) {
         if(arr[i].time > time) {
             arr.splice(i, 0, {
-                time: time,
+                time: time * 100,
+                a: offsetLeft,
+                b: offsetTop,
+                condition: "transform:translate(" + offsetLeft + "px," + offsetTop + "px)",
                 offsetX: offsetX,
                 view: view
             });
@@ -34,7 +37,10 @@ var judge = function (time , offsetX , view) {
     }
     if(index === -1) {
         arr.push({
-            time: time,
+            time: time * 100,
+            condition: "transform:translate(" + offsetLeft + "px," + offsetTop + "px)",
+            a: offsetLeft,
+            b: offsetTop,
             offsetX: offsetX,
             view: view
         });

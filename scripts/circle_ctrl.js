@@ -58,9 +58,9 @@ function generate(event) {
             window.addEventListener("mousemove", move4);
             var mouseup = function () {
                 window.removeEventListener("mousemove", move4);
-                var time = left / SLIDER_LEN;
+                var time = left / SLIDER_LEN * 100;
                 //弹起来之后将删掉的json放回
-                judge(time , left , toBeDel);
+                judge(time , element.offsetLeft, element.offsetTop, left, toBeDel);
                 window.removeEventListener("mouseup", mouseup);
             };
             window.addEventListener("mouseup", mouseup);
@@ -69,7 +69,7 @@ function generate(event) {
 
     //往数组里面加circle对象
     var time = event.offsetX / SLIDER_LEN;
-    judge(time , event.offsetX , circle);
+    judge(time, element.offsetLeft, element.offsetTop, event.offsetX , circle);
     
     var x = event.offsetX - CIRCLE_RADIUS;
     circle.style.left = x + "px";
